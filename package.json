@@ -12,7 +12,7 @@
     "clean": "rm -rf lib test/coverage",
     "build": "babel src -d lib",
     "preversion": "npm run lint && npm run test",
-    "version": "babel-node src/index.js --package && git add CHANGELOG.md",
+    "version": "auto-changelog -p -t .templates/changelog.hbs && git add CHANGELOG.md",
     "prepublish": "npm run clean && npm run build",
     "postpublish": "npm run clean",
     "generate-test-data": "cross-env NODE_ENV=test babel-node scripts/generate-test-data.js"
@@ -48,6 +48,7 @@
     "semver": "^5.1.0"
   },
   "devDependencies": {
+    "auto-changelog": "^1.2.2",
     "babel-cli": "^6.3.17",
     "babel-eslint": "^8.0.1",
     "babel-plugin-istanbul": "^4.1.5",
