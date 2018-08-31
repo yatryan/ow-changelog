@@ -1,8 +1,7 @@
-# oe-changelog
+# ow-changelog
 
 Command line tool for generating a changelog from git tags and commit history for Orbweaver node projects
 
-[![Latest npm version](https://img.shields.io/npm/v/ow-changelog.svg)](https://www.npmjs.com/package/ow-changelog)
 [![Build Status](https://img.shields.io/travis/yatryan/ow-changelog/master.svg)](https://travis-ci.org/yatryan/ow-changelog)
 [![Test Coverage](https://img.shields.io/codecov/c/github/yatryan/ow-changelog.svg)](https://codecov.io/gh/yatryan/owo-changelog)
 
