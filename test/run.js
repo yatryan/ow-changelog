@@ -74,7 +74,7 @@ describe('run', () => {
 
     mock('fileExists', () => true)
     mock('readJson', () => ({
-      'auto-changelog': {
+      'ow-changelog': {
         template: 'keepachangelog'
       }
     }))

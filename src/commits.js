@@ -1,8 +1,8 @@
 import semver from 'semver'
 import { cmd, isLink, replaceText, getGitVersion } from './utils'
 
-const COMMIT_SEPARATOR = '__OW_CHANGELOG_COMMIT_SEPARATOR__'
-const MESSAGE_SEPARATOR = '__OW_CHANGELOG_MESSAGE_SEPARATOR__'
+const COMMIT_SEPARATOR = '__AUTO_CHANGELOG_COMMIT_SEPARATOR__'
+const MESSAGE_SEPARATOR = '__AUTO_CHANGELOG_MESSAGE_SEPARATOR__'
 const MATCH_COMMIT = /(.*)\n(?:\s\((.*)\))?\n(.*)\n(.*)\n(.*)\n([\S\s]+)/
 const MATCH_STATS = /(\d+) files? changed(?:, (\d+) insertions?...)?(?:, (\d+) deletions?...)?/
 const BODY_FORMAT = '%B'

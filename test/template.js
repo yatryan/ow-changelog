@@ -28,7 +28,7 @@ describe('compileTemplate', () => {
   })
 
   it('compiles using url path', async () => {
-    const path = 'https://raw.githubusercontent.com/CookPete/auto-changelog/master/templates/compact.hbs'
+    const path = 'https://raw.githubusercontent.com/yatryan/ow-changelog/master/templates/compact.hbs'
     const expected = await readFile(join(__dirname, 'data', 'template-compact.md'))
     expect(await compileTemplate(path, { releases })).to.equal(expected)
   })
