@@ -16,7 +16,7 @@ const DEFAULT_OPTIONS = {
   tagPrefix: ''
 }
 
-const PACKAGE_OPTIONS_KEY = 'auto-changelog'
+const PACKAGE_OPTIONS_KEY = 'ow-changelog'
 
 function getOptions (argv, pkg) {
   const options = new Command()

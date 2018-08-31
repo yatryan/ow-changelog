@@ -1,24 +1,23 @@
-# auto-changelog
+# oe-changelog
 
-Command line tool for generating a changelog from git tags and commit history
+Command line tool for generating a changelog from git tags and commit history for Orbweaver node projects
 
-[![Latest npm version](https://img.shields.io/npm/v/auto-changelog.svg)](https://www.npmjs.com/package/auto-changelog)
-[![Build Status](https://img.shields.io/travis/CookPete/auto-changelog/master.svg)](https://travis-ci.org/CookPete/auto-changelog)
-[![Greenkeeper](https://img.shields.io/badge/greenkeeper-enabled-brightgreen.svg)](https://greenkeeper.io)
-[![Test Coverage](https://img.shields.io/codecov/c/github/cookpete/auto-changelog.svg)](https://codecov.io/gh/CookPete/auto-changelog)
+[![Latest npm version](https://img.shields.io/npm/v/ow-changelog.svg)](https://www.npmjs.com/package/ow-changelog)
+[![Build Status](https://img.shields.io/travis/yatryan/ow-changelog/master.svg)](https://travis-ci.org/yatryan/ow-changelog)
+[![Test Coverage](https://img.shields.io/codecov/c/github/yatryan/ow-changelog.svg)](https://codecov.io/gh/yatryan/owo-changelog)
 
 ### Installation
 
 ```bash
-npm install -g auto-changelog
+npm install -g ow-changelog
 ```
 
 ### Usage
 
-Simply run `auto-changelog` in the root folder of a git repository. `git log` is run behind the scenes in order to parse the commit history.
+Simply run `ow-changelog` in the root folder of a git repository. `git log` is run behind the scenes in order to parse the commit history.
 
 ```bash
-Usage: auto-changelog [options]
+Usage: ow-changelog [options]
 
 Options:
 
@@ -41,39 +40,39 @@ Options:
 
 
 # Write log to CHANGELOG.md in current directory
-auto-changelog
+ow-changelog
 
 # Write log to HISTORY.md
-auto-changelog --output HISTORY.md
+ow-changelog --output HISTORY.md
 
 # Write log using keepachangelog template
-auto-changelog --template keepachangelog
+ow-changelog --template keepachangelog
 
 # Write log using custom handlebars template in current directory
-auto-changelog --template my-custom-template.hbs
+ow-changelog --template my-custom-template.hbs
 
 # Change rendered commit limit to 5
-auto-changelog --commit-limit 5
+ow-changelog --commit-limit 5
 
 # Disable the commit limit, rendering all commits
-auto-changelog --commit-limit false
+ow-changelog --commit-limit false
 ```
 
 By default, changelogs will link to the appropriate pages for commits, issues and merge requests based on the `origin` remote of your repo. GitHub, BitBucket and GitLab are all supported. If you [close issues using keywords](https://help.github.com/articles/closing-issues-using-keywords) but refer to issues outside of your repository, you can use `--issue-url` to link somewhere else:
 
 ```bash
 # Link all issues to redmine
-auto-changelog --issue-url https://www.redmine.org/issues/{id}
+ow-changelog --issue-url https://www.redmine.org/issues/{id}
 ```
 
 Use `--tag-prefix [prefix]` if you prefix your version tags with a certain string:
 
 ```bash
 # When all versions are tagged like my-package/1.2.3
-auto-changelog --tag-prefix my-package/
+ow-changelog --tag-prefix my-package/
 ```
 
-You can also set any option in `package.json` under the `auto-changelog` key, using camelCase options:
+You can also set any option in `package.json` under the `ow-changelog` key, using camelCase options:
 
 ```js
 {
@@ -82,7 +81,7 @@ You can also set any option in `package.json` under the `auto-changelog` key, us
   "scripts": {
     // ...
   },
-  "auto-changelog": {
+  "ow-changelog": {
     "output": "HISTORY.md",
     "template": "keepachangelog",
     "unreleased": true,
@@ -93,7 +92,7 @@ You can also set any option in `package.json` under the `auto-changelog` key, us
 
 ### Requirements
 
-`auto-changelog` is designed to be as flexible as possible, providing a clear changelog for any project. There are only two absolute requirements:
+`ow-changelog` is designed to be as flexible as possible, providing a clear changelog for any project. There are only two absolute requirements:
 
 - You should be using git `1.7.2` or later
 - All versions should be tagged using [semver](https://semver.org) tag names – this happens by default when using [`npm version`](https://docs.npmjs.com/cli/version)
@@ -105,25 +104,25 @@ There are some less strict requirements to improve your changelog:
 
 ### What you might do if you’re clever
 
-Install `auto-changelog` to dev dependencies:
+Install `ow-changelog` to dev dependencies:
 
 ```bash
-npm install auto-changelog --save-dev
+npm install ow-changelog --save-dev
 # or
-yarn add auto-changelog --dev
+yarn add ow-changelog --dev
 ```
 
-Add `auto-changelog -p && git add CHANGELOG.md` to the `version` scripts in your `package.json`:
+Add `ow-changelog -p && git add CHANGELOG.md` to the `version` scripts in your `package.json`:
 
 ```json
 {
   "name": "my-awesome-package",
   "version": "1.0.0",
   "devDependencies": {
-    "auto-changelog": "*"
+    "ow-changelog": "*"
   },
   "scripts": {
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "version": "ow-changelog -p && git add CHANGELOG.md"
   }
 }
 ```
@@ -137,7 +136,7 @@ Now every time you run [`npm version`](https://docs.npmjs.com/cli/version), the 
 If you use a common pattern in your commit messages for breaking changes, use `--breaking-pattern` to highlight those commits as breaking changes in your changelog. Breaking change commits will always be listed as part of a release, regardless of any `--commit-limit` set.
 
 ```bash
-auto-changelog --breaking-pattern "BREAKING CHANGE:"
+ow-changelog --breaking-pattern "BREAKING CHANGE:"
 ```
 
 ### Custom templates
@@ -168,19 +167,19 @@ My custom changelog template. Don’t worry about indentation here; it is automa
 Then just use `--template` to point to your template:
 
 ```bash
-auto-changelog --template changelog-template.hbs
+ow-changelog --template changelog-template.hbs
 ```
 
 You can also point to an external template by passing in a URL:
 
 ```bash
-auto-changelog --template https://example.com/templates/compact.hbs
+ow-changelog --template https://example.com/templates/compact.hbs
 ```
 
 To see exactly what data is passed in to the templates, you can generate a JSON version of the changelog:
 
 ```bash
-auto-changelog --template json --output changelog-data.json
+ow-changelog --template json --output changelog-data.json
 ```
 
 ### `commit-list` helper
@@ -212,11 +211,11 @@ Use `{{#commit-list}}` to render a list of commits depending on certain patterns
 
 ### Custom issue patterns
 
-By default, `auto-changelog` will parse [GitHub-style issue fixes](https://help.github.com/articles/closing-issues-using-keywords/) in your commit messages. If you use Jira or an alternative pattern in your commits to reference issues, you can pass in a custom regular expression to `--issue-pattern` along with `--issue-url`:
+By default, `ow-changelog` will parse [GitHub-style issue fixes](https://help.github.com/articles/closing-issues-using-keywords/) in your commit messages. If you use Jira or an alternative pattern in your commits to reference issues, you can pass in a custom regular expression to `--issue-pattern` along with `--issue-url`:
 
 ```bash
 # Parse Jira-style issues in your commit messages, like PROJECT-418
-auto-changelog --issue-pattern [A-Z]+-\d+ --issue-url https://issues.apache.org/jira/browse/{id}
+ow-changelog --issue-pattern [A-Z]+-\d+ --issue-url https://issues.apache.org/jira/browse/{id}
 ```
 
 Or, in your `package.json`:
@@ -224,7 +223,7 @@ Or, in your `package.json`:
 ```js
 {
   "name": "my-awesome-package",
-  "auto-changelog": {
+  "ow-changelog": {
     "issueUrl": "https://issues.apache.org/jira/browse/{id}",
     "issuePattern": "[A-Z]+-\d+"
   }
@@ -235,7 +234,7 @@ If you use a certain pattern before or after the issue number, like `fixes {id}`
 
 ```bash
 # "This commit fixes ISSUE-123" will now parse ISSUE-123 as an issue fix
-auto-changelog --issue-pattern "[Ff]ixes ([A-Z]+-\d+)"
+ow-changelog --issue-pattern "[Ff]ixes ([A-Z]+-\d+)"
 ```
 
 ### Replacing text
@@ -245,7 +244,7 @@ To insert links or other markup to PR titles and commit messages that appear in 
 ```js
 {
   "name": "my-awesome-package",
-  "auto-changelog": {
+  "ow-changelog": {
     "replaceText": {
       "(ABC-\\d+)": "[`$1`](https://issues.apache.org/jira/browse/$1)"
     }
@@ -266,7 +265,7 @@ If you are upgrading from `0.x`, the same options are still supported out of the
 - Unreleased changes are no longer listed by default, use `--unreleased` to include them
 - [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org) are now fully supported
 
-If anything isn’t working correctly, [open an issue](https://github.com/CookPete/auto-changelog/issues).
+If anything isn’t working correctly, [open an issue](https://github.com/yatryan/ow-changelog/issues).
 
 ### FAQ
 

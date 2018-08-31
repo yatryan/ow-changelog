@@ -1,5 +1,6 @@
 The MIT License
 
+Copyright (c) 2018 Taylor Ryan, Orbweaver http://orbweaver.com
 Copyright (c) 2017 Pete Cook http://cookpete.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
