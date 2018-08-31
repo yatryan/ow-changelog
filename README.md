@@ -3,7 +3,7 @@
 Command line tool for generating a changelog from git tags and commit history for Orbweaver node projects
 
 [![Build Status](https://img.shields.io/travis/yatryan/ow-changelog/master.svg)](https://travis-ci.org/yatryan/ow-changelog)
-[![Test Coverage](https://img.shields.io/codecov/c/github/yatryan/ow-changelog.svg)](https://codecov.io/gh/yatryan/owo-changelog)
+[![Test Coverage](https://img.shields.io/codecov/c/github/yatryan/ow-changelog.svg)](https://codecov.io/gh/yatryan/ow-changelog)
 
 ### Installation
 
